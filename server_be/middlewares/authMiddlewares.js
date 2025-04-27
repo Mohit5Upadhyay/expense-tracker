@@ -16,11 +16,11 @@ exports.protect = async(req, res , next) => {
         })
     }
 
-    console.log( "token from auth middleware" , token);
+    // console.log( "token from auth middleware" , token);
 
-    console.log(User);
-    // console.log(user);
-    console.log(await req.user);
+    // console.log(User);
+    // // console.log(user);
+    // console.log(await req.user);
     
     
 
