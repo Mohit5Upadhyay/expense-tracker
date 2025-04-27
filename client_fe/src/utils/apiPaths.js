@@ -1,7 +1,7 @@
 
 // configuring API paths for different environments
 
-export const BASE_URL = 'http://localhost:8000'
+export const BASE_URL = import.meta.env.VITE_API_FRONTEND_URL || "http://localhost:8000";
 
 
 // API paths :
