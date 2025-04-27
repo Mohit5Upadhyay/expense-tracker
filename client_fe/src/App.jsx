@@ -17,6 +17,7 @@ import Expense from './pages/Dashboard/Expense'
 import UserProvider from './context/UserContext'
 
 import  {Toaster} from 'react-hot-toast'
+import Footer from './components/footer/Footer'
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
           <Route path='/dashboard' element={<Home />} />
           <Route path='/income' element={<Income />} />
           <Route path='/expenses' element={<Expense />} />
+          <Route path='/footer' element={<Footer />} />
         </Routes>
       </Router>
 

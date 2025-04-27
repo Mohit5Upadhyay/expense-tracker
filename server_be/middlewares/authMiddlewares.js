@@ -8,6 +8,8 @@ exports.protect = async(req, res , next) => {
 
     let token = req.headers.authorization?.split(" ")[1];
 
+    console.log("token from auth middleware :: protect Route " , token);
+
     if(!token){
         return res.status(401).json({
             message: "Unauthorized user.."

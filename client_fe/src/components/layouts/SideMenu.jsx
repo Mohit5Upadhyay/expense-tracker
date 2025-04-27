@@ -5,7 +5,18 @@ import { useNavigate } from "react-router-dom";
 import CharAvatar from "../cards/CharAvatar";
 
 function SideMenu({ activeMenu }) {
-  const { user, clearUser } = useContext(UserContext);
+  const { user , clearUser } = useContext(UserContext);
+
+  console.log("user: ", user);
+  console.log("clearUser: ", clearUser);
+
+  // Replace your existing console logs with this:
+console.log("Complete user object:", JSON.stringify(user, null, 2));
+
+  console.log("FullName: ", user?.fullName);
+  console.log("Profile: ", user.profileImageUrl || "empty");
+  console.log("email: ", user.email);
+  console.log("_id: ", user._id);
 
   const navigate = useNavigate();
 
@@ -29,11 +40,11 @@ function SideMenu({ activeMenu }) {
   };
 
   return (
-    <div className="w-64 h-[calc(100vh-61px)]  bg-white border-r border-pink-600 p-5 sticky top-[61px] z-50">
+    <div className="w-64 h-[calc(100vh-60px)]  p-5 sticky top-[70px] z-50">
       <div className="flex flex-col items-center mt-3 gap-3 justify-center mb-7">
         {user?.profileImageUrl ? (
           <img
-            src={user?.profileImageUrl || ""}
+            src={user?.profileImageUrl}
             alt="profile image"
             className="w-20 h-20 rounded-full bg-slate-400"
           />
@@ -42,12 +53,12 @@ function SideMenu({ activeMenu }) {
             fullName={user?.fullName}
             width="w-20"
             height="h-20"
-            style="text-xl"
+            style="text-xl animate-bounce"
           />
         )}
 
-        <h5 className="text-gray-800 font-semibold leading-6 text-center ">
-          {(user?.fullName) || ""}  {/* .toUpperCase() used here */}
+        <h5 className="text-gray-800 font-semibold leading-6 text-center animate-bounce">
+          {(user?.fullName).toUpperCase() || ""}  {/* .toUpperCase() used here */}
         </h5>
       </div>
 

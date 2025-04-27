@@ -1,6 +1,6 @@
 
 
-import React , { Children, createContext , useState, useTransition } from 'react'
+import React , { children, createContext , useState } from 'react'
 
 export const UserContext = createContext()
 
@@ -9,7 +9,7 @@ const UserProvider = ({ children }) => {
 
     // function to update user data
     const updateUser = (userData) => {
-        setUser(userData)
+        setUser(userData.user || userData)
     }
 
     // function to clear user data

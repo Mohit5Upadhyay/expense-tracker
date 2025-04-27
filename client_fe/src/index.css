@@ -48,5 +48,5 @@
 }
 
 .add-btn-fill{
-    @apply text-white border-r-yellow-500
+    @apply text-white 
 }
