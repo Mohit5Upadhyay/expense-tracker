@@ -27,12 +27,12 @@ exports.protect = async(req, res , next) => {
     try {
         const decoded = jwt.verify(token , process.env.JWT_SECRET)
 
-        console.log(decoded , "decoded token from auth middleware");
+        // console.log(decoded , "decoded token from auth middleware");
         
 
         req.user = await User.findById(decoded.id).select("-password");
 
-        console.log(req.user , "user from auth middleware");
+        // console.log(req.user , "user from auth middleware");
         
         next();
 

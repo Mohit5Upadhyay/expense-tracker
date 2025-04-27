@@ -29,14 +29,14 @@ function Home() {
     // if (loading) return;
     // setLoading(true);
 
-    console.log("Above try block in fetchDashboardData" , API_PATHS.DASHBOARD.GET_DATA);
+    // console.log("Above try block in fetchDashboardData" , API_PATHS.DASHBOARD.GET_DATA);
     
     try {
       const response = await axiosInstance.get(
         `${API_PATHS.DASHBOARD.GET_DATA}`
       );
 
-      console.log("Dashboard Data : ", response);
+      // console.log("Dashboard Data : ", response);
 
       if (response.data) {
         setDashboardData(response.data);

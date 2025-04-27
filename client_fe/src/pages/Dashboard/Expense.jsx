@@ -50,7 +50,7 @@ function Expense() {
   const handleAddExpense = async (expense) => {
     const { category, amount, date, icon } = expense;
 
-    console.log("Details" , `category: ${category}  , amount: ${amount} , date ${date} , icon :${icon}`);
+    // console.log("Details" , `category: ${category}  , amount: ${amount} , date ${date} , icon :${icon}`);
     
     
 
@@ -123,7 +123,7 @@ function Expense() {
       // creating URL FOR Blob
       const url = window.URL.createObjectURL(new Blob([response.data]));
 
-      console.log("Download URL : ", url);
+      // console.log("Download URL : ", url);
 
       const link = document.createElement("a");
       link.href = url;

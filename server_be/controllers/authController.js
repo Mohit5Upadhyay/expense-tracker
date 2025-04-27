@@ -25,8 +25,8 @@ exports.registerUser = async (req , res) => {
         })
     }
 
-    console.log( fullName , email , password , profileImageUrl);
-    console.log(User);
+    // console.log( fullName , email , password , profileImageUrl);
+    // console.log(User);
     
     
 
@@ -80,14 +80,14 @@ exports.loginUser = async (req , res) => {
         })
     }
 
-    console.log(email , password);
+    // console.log(email , password);
     
     try {
         
         // check for user email exist or not
         const user  = await User.findOne({email});
 
-        console.log(user , "login user");
+        // console.log(user , "login user");
         
 
         if(!user || !(await user.comparePassword(password))){

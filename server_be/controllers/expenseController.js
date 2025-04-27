@@ -10,7 +10,7 @@ const xlsx = require("xlsx");
 exports.addExpense = async (req, res) => {
     const  userId = req.user.id;
 
-    console.log(userId , "userId from expense controller");
+    // console.log(userId , "userId from expense controller");
 
     try {
         const {icon , category , amount , date} = req.body;
@@ -31,7 +31,7 @@ exports.addExpense = async (req, res) => {
             date : new Date(date)
         })
 
-        console.log("new Date(date)" , new Date(date));
+        // console.log("new Date(date)" , new Date(date));
         
         // saving data to db
         await newExpense.save()
@@ -51,7 +51,7 @@ exports.addExpense = async (req, res) => {
 
 exports.getAllExpense = async (req, res) => {
     const userId = req.user.id;
-    console.log(userId , "userId from all expenses controller");
+    // console.log(userId , "userId from all expenses controller");
 
     try {
         const expense = await Expense.find({userId}).sort({date: -1});
@@ -70,7 +70,7 @@ exports.getAllExpense = async (req, res) => {
 
 exports.deleteExpense = async (req, res) => {
     const userId = req.user.id;
-    console.log(userId , "userId from delete expense controller");
+    // console.log(userId , "userId from delete expense controller");
     
 
     try {

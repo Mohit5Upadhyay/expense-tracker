@@ -1,0 +1,16 @@
+{
+  "name": "expensetracker",
+  "version": "1.0.0",
+  "private":"true",
+  "scripts": {
+    "client": "npm --prefix ./client_fe run dev",            
+    "client:build": "npm --prefix ./client_fe run build",  
+    "server": "npm --prefix ./server_be run dev",            
+    "install:all": "npm install --prefix ./client_fe && npm install --prefix ./server_be",  
+    "start": "concurrently \"npm run server\" \"npm run client\"" ,
+    "dev": "nodemon server.js" 
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

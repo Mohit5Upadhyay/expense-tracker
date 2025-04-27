@@ -9,11 +9,11 @@ exports.getDashboardData = async (req, res) => {
     const userId = req.user.id;
     const userObjectId = new Types.ObjectId(userId);
 
-    console.log("userId from dashboardContoller", userId);
-    console.log("userObjectId from dashboardContoller", userObjectId);
+    // console.log("userId from dashboardContoller", userId);
+    // console.log("userObjectId from dashboardContoller", userObjectId);
 
-    // fetching total income and expense from all documnets
-    console.log(Income, "income model from dashboard controller");
+    // // fetching total income and expense from all documnets
+    // console.log(Income, "income model from dashboard controller");
 
     const totalIncome = await Income.aggregate([
       {
@@ -29,7 +29,7 @@ exports.getDashboardData = async (req, res) => {
       },
     ]);
 
-    console.log("total income", totalIncome);
+    // console.log("total income", totalIncome);
 
     const totalExpense = await Expense.aggregate([
       {
@@ -45,7 +45,7 @@ exports.getDashboardData = async (req, res) => {
       },
     ]);
 
-    console.log("total expense", totalExpense);
+    // console.log("total expense", totalExpense);
 
     // getting income transaction in last 60 days
     const last60DaysIncomeTransaction = await Income.find({
@@ -55,7 +55,7 @@ exports.getDashboardData = async (req, res) => {
       },
     }).sort({ date: -1 });
 
-    console.log("last 60 days income transaction", last60DaysIncomeTransaction);
+    // console.log("last 60 days income transaction", last60DaysIncomeTransaction);
 
     // get total income in last 60 days
     const incomeLast60Days = last60DaysIncomeTransaction.reduce(
@@ -63,7 +63,7 @@ exports.getDashboardData = async (req, res) => {
       0
     ); // sum = 0 initially
 
-    console.log("income last 60 days", incomeLast60Days);
+    // console.log("income last 60 days", incomeLast60Days);
 
     // getting expense transaction for last 30 days
     const last30DaysExpenseTransaction = await Expense.find({
@@ -73,10 +73,10 @@ exports.getDashboardData = async (req, res) => {
       },
     }).sort({ date: -1 });
 
-    console.log(
-      "last 30 days expense transaction",
-      last30DaysExpenseTransaction
-    );
+    // console.log(
+    //   "last 30 days expense transaction",
+    //   last30DaysExpenseTransaction
+    // );
 
     // get total expense in last 30 days
     const expenseLast30Days = last30DaysExpenseTransaction.reduce(
@@ -84,26 +84,18 @@ exports.getDashboardData = async (req, res) => {
       0
     ); // sum = 0 initially
 
-    console.log("expense last 30 days", expenseLast30Days);
+    // console.log("expense last 30 days", expenseLast30Days);
 
-    // fetching last 5 income transactions
-    // const lastTransaction = [ ...(await Income.find({userId}).sort({date: -1}).limit(5).map((txn) => ({
-    //     ...txn.toObject(),
-    //     type: "income",
-    // }))) , ...(await Expense.find({userId}).sort({date: -1}).limit(5).map((txn) => ({
-    //     ...txn.toObject(),
-    //     type: "expense",
-    // })))].sort((a , b) => b.date - a.date);
     const incomeTxns = await Income.find({ userId })
       .sort({ date: -1 })
       .limit(5);
 
-    console.log("income transactions", incomeTxns);
+    // console.log("income transactions", incomeTxns);
     const expenseTxns = await Expense.find({ userId })
       .sort({ date: -1 })
       .limit(5);
 
-    console.log("expense transactions", expenseTxns);
+    // console.log("expense transactions", expenseTxns);
 
     const lastTransaction = [
       ...incomeTxns.map((txn) => ({
@@ -116,7 +108,7 @@ exports.getDashboardData = async (req, res) => {
       })),
     ].sort((a, b) => b.date - a.date);
 
-    console.log("last 5 transactions", lastTransaction);
+    // console.log("last 5 transactions", lastTransaction);
 
     res.status(200).json({
       message: "Dashboard data fetched Successfully.",

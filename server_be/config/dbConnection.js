@@ -7,7 +7,7 @@ const connectDB = async () => {
 
         })
 
-        console.log("MongoDB Connected :--->" , response.connection.host);
+        console.log("MongoDB Connected :---");
         
     } catch (err) {
         console.log("Error :: dbConnect.js File ::" , err);

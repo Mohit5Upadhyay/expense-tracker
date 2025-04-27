@@ -35,7 +35,7 @@ function Income() {
         `${API_PATHS.INCOME.GET_INCOME}`
       );
 
-      console.log("Income :: Income.jsx :: Data : ", response);
+      // console.log("Income :: Income.jsx :: Data : ", response);
 
       if (response.data) {
         setIncomeData(response.data.income);
@@ -120,7 +120,7 @@ function Income() {
       // creating URL FOR Blob
       const url = window.URL.createObjectURL(new Blob([response.data]));
 
-      console.log("Download URL : ", url);
+      // console.log("Download URL : ", url);
 
       const link = document.createElement("a");
       link.href = url;
