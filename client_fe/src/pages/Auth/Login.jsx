@@ -50,7 +50,7 @@ function Login() {
         password
       })
 
-      console.log("Login Response : ", response)
+      // console.log("Login Response : ", response)
 
       const { token, user } = response.data
 

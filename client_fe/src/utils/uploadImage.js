@@ -16,7 +16,7 @@ const uploadImage = async (imageFile) => {
             },
         })
 
-        console.log("Image Upload : upload image utils:  Response : ", response);
+        // console.log("Image Upload : upload image utils:  Response : ", response);
         
         return response.data;
 

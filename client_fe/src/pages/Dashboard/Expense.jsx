@@ -35,13 +35,16 @@ function Expense() {
         `${API_PATHS.EXPENSE.GET_EXPENSE}`
       );
 
-      console.log("Expense :: Expense.jsx :: Data : ", response);
+      // console.log("Expense :: Expense.jsx :: Data : ", response);
 
       if (response.data) {
         setExpenseData(response.data.expense); //.expense
       }
     } catch (error) {
       console.log("Error while fetching Expense data : ", error);
+      // toast.error(
+      //   error.response?.data?.message || "Error while fetching Expense data.."
+      // );
     } finally {
       setLoading(false);
     }
@@ -139,10 +142,7 @@ function Expense() {
         "Error downloading Expense details : ",
         error.response?.data?.message || error.message
       );
-      toast.error(
-        "Error downloading Expense details : ",
-        error.response?.data?.message || error.message
-      );
+      
     }finally{
       setLoading(false)
     }

@@ -3,7 +3,7 @@ import React from 'react'
 function CustomLegend({payload}) {
 
   if (!payload || !payload.length === 0) return null
-  console.log("Payload in CustomLegend : ", payload)
+  // console.log("Payload in CustomLegend : ", payload)
   
 
   return (

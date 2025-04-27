@@ -56,8 +56,8 @@ function Signup() {
         profileImageUrl = imgUploadRes.imageUrl || "";
       }
 
-      console.log("above API Call");
-      console.log(fullName, email, password, profileImageUrl);
+      // console.log("above API Call");
+      // console.log(fullName, email, password, profileImageUrl);
 
       const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
         fullName,
@@ -68,7 +68,7 @@ function Signup() {
 
       const { token, user } = response.data;
 
-      console.log("Signup Response : ", response);
+      // console.log("Signup Response : ", response);
 
       if (token) {
         localStorage.setItem("token", token);

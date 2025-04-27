@@ -5,14 +5,14 @@ function CharAvatar({ fullName, width, height, style }) {
   
 
   
-  console.log(
-    "CharAvatar Props : ",
-    fullName,
-    typeof fullName,
-    width,
-    height,
-    style
-  );
+  // console.log(
+  //   "CharAvatar Props : ",
+  //   fullName,
+  //   typeof fullName,
+  //   width,
+  //   height,
+  //   style
+  // );
 
   return (
     <div

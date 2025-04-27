@@ -8,16 +8,16 @@ import toast from "react-hot-toast";
 function SideMenu({ activeMenu }) {
   const { user , clearUser } = useContext(UserContext);
 
-  console.log("user: ", user);
-  console.log("clearUser: ", clearUser);
+  // console.log("user: ", user);
+  // console.log("clearUser: ", clearUser);
 
   // Replace your existing console logs with this:
-console.log("Complete user object:", JSON.stringify(user, null, 2));
+// console.log("Complete user object:", JSON.stringify(user, null, 2));
 
-  console.log("FullName: ", user?.fullName);
-  console.log("Profile: ", user.profileImageUrl || "empty");
-  console.log("email: ", user.email);
-  console.log("_id: ", user._id);
+  // console.log("FullName: ", user?.fullName);
+  // console.log("Profile: ", user.profileImageUrl || "empty");
+  // console.log("email: ", user.email);
+  // console.log("_id: ", user._id);
 
   const navigate = useNavigate();
 
@@ -32,8 +32,8 @@ console.log("Complete user object:", JSON.stringify(user, null, 2));
   };
 
 
-  console.log("Active Menu : ", activeMenu);
-  console.log("User : ", user);
+  // console.log("Active Menu : ", activeMenu);
+  // console.log("User : ", user);
 
   const handleLogout = () => {
     localStorage.clear();
