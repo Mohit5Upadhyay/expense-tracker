@@ -19,8 +19,13 @@ function TransactionInfoCard({
   const getAmountStyles = () =>
     type === "income" ? "bg-green-50 text-green-500" : "bg-red-50 text-red-500";
 
+  const getCardStyle = () => type === "income" ? "hover:bg-green-100/50" : "hover:bg-red-100/50";
+
+  // console.log("Amount Type : ", amountType);
+
+
   return (
-    <div className="group relative flex items-center gap-4 mt-2 p-3 rounded-lg hover:bg-gray-100/60">
+    <div className={`group relative flex items-center gap-4 mt-2 p-3 rounded-lg ${getCardStyle()} `}>
       <div className="w-12 h-12 flex items-center justify-center text-xl text-gray-500 rounded-full bg-gray-100">
         {icon ? (
           <img src={icon} alt={title} className="w-6 h-6" />

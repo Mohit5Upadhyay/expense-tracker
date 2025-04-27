@@ -15,6 +15,7 @@ import ExpenseTransactions from "../../components/dashboard/ExpenseTransactions"
 import RecentIncome from "../../components/dashboard/RecentIncome";
 import Last30DaysExpenses from "../../components/dashboard/Last30DaysExpenses";
 import RecentIncomeWithChart from "../../components/dashboard/RecentIncomeWithChart";
+import Loader from "../../components/loader/Loader";
 
 function Home() {
   useUserAuth();
@@ -22,11 +23,11 @@ function Home() {
   const navigate = useNavigate();
 
   const [dashboardData, setDashboardData] = useState(null);  // null value thi
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const fetchDashboardData = async () => {
-    if (loading) return;
-    setLoading(true);
+    // if (loading) return;
+    // setLoading(true);
 
     console.log("Above try block in fetchDashboardData" , API_PATHS.DASHBOARD.GET_DATA);
     
@@ -54,9 +55,13 @@ function Home() {
   }, []);
 
   return (
+    <div>
+    {loading ? (
+      <Loader />
+    ) : (
     <DashboardLayout activeMenu="Dashboard">
       <div className="my-5 mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <InfoCard
             icon={<IoMdCard />}
             label="Total Balance"
@@ -117,6 +122,8 @@ function Home() {
         </div>
       </div>
     </DashboardLayout>
+    )}
+    </div>
   );
 }
 

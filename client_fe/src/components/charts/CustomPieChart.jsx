@@ -18,7 +18,7 @@ function CustomPieChart({
     showTextAnchor
 }) {
   return (
-    <ResponsiveContainer width="100%" height={380}>
+    <ResponsiveContainer width="100%" height={390}>
         <PieChart>
             <Pie 
                 data={data}
@@ -29,13 +29,17 @@ function CustomPieChart({
                 outerRadius={130}
                 innerRadius={100}
                 labelLine={false}
+                isAnimationActive={true}
             > 
                 {data.map((entry,index) => (
                     <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
                 ))}
             </Pie>
 
-            <Tooltip content={CustomTooltip}/>
+            <Tooltip content={CustomTooltip}
+            wrapperStyle={{ outline: 'none' }}
+            isAnimationActive={true}
+            />
             <Legend content={CustomLegend}/>
 
             {showTextAnchor && (

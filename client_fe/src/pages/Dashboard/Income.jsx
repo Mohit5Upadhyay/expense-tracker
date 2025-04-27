@@ -11,6 +11,7 @@ import DeleteAlert from "../../components/DeleteAlert";
 
 import { useUserAuth } from "../../hooks/useUserAuth";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
+import Loader from "../../components/loader/Loader";
 
 function Income() {
   useUserAuth();
@@ -18,7 +19,7 @@ function Income() {
   const [openAddIncomeModal, setOpenAddIncomeModal] = useState(false);
 
   const [incomeData, setIncomeData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [openDeleteAlert, setOpenDeleteAlert] = useState({
     show: false,
     data: null,
@@ -26,8 +27,8 @@ function Income() {
 
   // get all income API
   const fetchIncomeDetails = async () => {
-    if (loading) return;
-    setLoading(true);
+    // if (loading) return;
+    // setLoading(true);
 
     try {
       const response = await axiosInstance.get(
@@ -81,7 +82,9 @@ function Income() {
       console.error(
         "Error adding in income",
         error.response?.data?.message || error.message
-      );
+      )
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -99,6 +102,8 @@ function Income() {
         error.response?.data?.message || error.message
       );
       // setOpenDeleteAlert({ show: false, data: null });
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -135,6 +140,8 @@ function Income() {
         "Error downloading Income details : ",
         error.response?.data?.message || error.message
       );
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -145,6 +152,10 @@ function Income() {
   }, []);
 
   return (
+    <div>
+    {loading ? (
+      <Loader />
+    ) : (
     <DashboardLayout activeMenu="Income">
       <div className="my-5 mx-auto">
         <div className="grid grid-cols-1 gap-6">
@@ -186,7 +197,8 @@ function Income() {
           />
         </Modal>
       </div>
-    </DashboardLayout>
+    </DashboardLayout> )}
+    </div>
   );
 }
 

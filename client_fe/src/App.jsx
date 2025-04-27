@@ -31,7 +31,6 @@ function App() {
           <Route path='/dashboard' element={<Home />} />
           <Route path='/income' element={<Income />} />
           <Route path='/expenses' element={<Expense />} />
-          <Route path='/footer' element={<Footer />} />
         </Routes>
       </Router>
 

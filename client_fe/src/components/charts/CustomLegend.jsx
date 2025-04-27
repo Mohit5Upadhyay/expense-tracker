@@ -3,9 +3,11 @@ import React from 'react'
 function CustomLegend({payload}) {
 
   if (!payload || !payload.length === 0) return null
+  console.log("Payload in CustomLegend : ", payload)
+  
 
   return (
-    <div className='flex flex-wrap justify-center border  gap-20 mt-2'>
+    <div className='flex flex-wrap justify-center border  gap-8 md:gap-20 mt-2'>
         {payload.map((entry,index) => (
             <div key={`legend-${index}`} className='flex items-center  space-x-3'>
                 <div 

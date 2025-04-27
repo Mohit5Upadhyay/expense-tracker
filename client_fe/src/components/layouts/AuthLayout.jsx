@@ -1,12 +1,12 @@
 import React from 'react'
-import CARD_2 from '../../assets/images/card2.png'
+import CARD_2 from '../../assets/images/image.png'
 import { LuTrendingUpDown } from "react-icons/lu";
 
 function AuthLayout({children}) {
   return (
     <div className='flex flex-col md:flex-row w-screen h-screen'>
-        <div className='w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12'>
-            <h2>Expense Tracker..</h2>
+        <div className='w-screen h-screen md:w-[60vw] md:px-12 px-5 pt-8 pb-12'>
+            <h2 className='text-3xl font-semibold'>Expense Tracker..</h2>
             {children}
         </div>
 
@@ -25,8 +25,8 @@ function AuthLayout({children}) {
                 />
             </div>
 
-            <img src={CARD_2} alt="image card_2" 
-            className='w-64 lg:w-[90%] absolute bottom-10 shadow-lg shadow-blue-400/15'/>
+            <img src={CARD_2} alt="expense_income_chart_image" 
+            className='w-64 lg:w-[90%] absolute bottom-10 shadow-lg rounded-xl shadow-purple-600 border '/>
 
         </div>
 
@@ -44,7 +44,7 @@ const StatsInfoCard = ({icon, label, value, color}) =>{
             </div>
             <div>
                 <h6 className='text-xs text-gray-500 mb-1'>{label}</h6>
-                <span className='text-[20px] '>${value}</span>
+                <span className='text-[20px] '>₹ {value}</span>
             </div>
             
         </div>

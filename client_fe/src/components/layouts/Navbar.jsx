@@ -6,7 +6,7 @@ function Navbar({ activeMenu, openSideMenu, setOpenSideMenu }) {
   // const [openSideMenu, setOpenSideMenu] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 shadow-md bg-slate-50/80 backdrop-blur-[5px]">
+    <nav className="fixed top-0 left-0 right-0 shadow-md bg-slate-50/80 backdrop-blur-[5px] z-[1000]">
       <div className="flex gap-5 bg-white border border-gray-200/5 backdrop-blur-[2px] py-4 px-7 sticky top-0 z-50">
         <button
           className="block lg:hidden text-slate-600"

@@ -3,6 +3,7 @@ import { SIDE_MENU_DATA } from "../../utils/data";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import CharAvatar from "../cards/CharAvatar";
+import toast from "react-hot-toast";
 
 function SideMenu({ activeMenu }) {
   const { user , clearUser } = useContext(UserContext);
@@ -23,6 +24,7 @@ console.log("Complete user object:", JSON.stringify(user, null, 2));
   const handleClick = (route) => {
     if (route === "/logout") {
       handleLogout();
+      toast.success("Logout successfully!")
       return;
     }
 
@@ -53,7 +55,7 @@ console.log("Complete user object:", JSON.stringify(user, null, 2));
             fullName={user?.fullName}
             width="w-20"
             height="h-20"
-            style="text-xl animate-bounce"
+            style="text-xl " // animate-bounce
           />
         )}
 

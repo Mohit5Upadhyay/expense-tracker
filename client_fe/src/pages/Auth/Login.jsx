@@ -6,6 +6,7 @@ import { validateEmail } from '../../utils/helper'
 import axiosInstance from '../../utils/axiosInstance'
 import { API_PATHS } from '../../utils/apiPaths'
 import { UserContext } from '../../context/UserContext'
+import { toast } from 'react-hot-toast'
 
 function Login() {
 
@@ -56,6 +57,7 @@ function Login() {
       if(token){
         localStorage.setItem("token", token)
         updateUser(user) // update user context
+        toast.success("Login Successful")
         navigate("/dashboard")
       }
 
@@ -83,7 +85,7 @@ function Login() {
           value={email}
           onChange={({target}) => setEmail(target.value)} 
           label="Email Address"
-          placeholder="john@example.com"
+          placeholder="alex@example.com"
           type="text"
         />
 

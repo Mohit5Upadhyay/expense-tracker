@@ -20,7 +20,7 @@ function DashboardLayout({ children, activeMenu }) {
       {user && (
         <div className="flex">
           {/* Desktop sidebar */}
-          <div className="hidden lg:block bg-white ">
+          <div className="hidden lg:block bg-white z-[800] ">
             <SideMenu activeMenu={activeMenu} />
           </div>
 
@@ -28,7 +28,7 @@ function DashboardLayout({ children, activeMenu }) {
           <div
             className={`lg:hidden ${
               openSideMenu ? "block" : "hidden"
-            } fixed inset-0 z-40`}
+            } fixed inset-0 z-[800]`}
           >
             <div
               className="fixed inset-0 bg-black/50"
@@ -39,7 +39,7 @@ function DashboardLayout({ children, activeMenu }) {
             </div>
           </div>
 
-          <div className="grow mx-5">{children}</div>
+          <div className="grow mx-5 z-[600]">{children}</div>
         </div>
       )}
 

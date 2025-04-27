@@ -91,19 +91,19 @@ function Signup() {
         <h3 className="text-xl font-semibold text-slate-100">
           Create an Account..
         </h3>
-        <p className="text-xs text-slate-700 mt-[5px] mb-6">
-          Joinus today by entering your details below.
+        <p className="text-xs text-slate-400 mt-[5px] mb-6">
+          Join us today by entering your details below.
         </p>
 
         <form onSubmit={handleSignUp}>
           <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex flex-col md:grid  md:grid-cols-2 gap-4">
             <Input
               value={fullName}
               onChange={({ target }) => setFullName(target.value)}
               label="Full Name"
-              placeholder="John"
+              placeholder="Alex Markov"
               type="text"
             />
 
@@ -111,7 +111,7 @@ function Signup() {
               value={email}
               onChange={({ target }) => setEmail(target.value)}
               label="Email Address"
-              placeholder="john@example.com"
+              placeholder="alex@example.com"
               type="text"
             />
 

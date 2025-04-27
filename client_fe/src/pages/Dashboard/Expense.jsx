@@ -11,6 +11,7 @@ import ExpenseList from "../../components/expense/ExpenseList";
 import DeleteAlert from "../../components/DeleteAlert";
 import axiosInstance from "../../utils/axiosInstance";
 import toast from "react-hot-toast";
+import Loader from "../../components/loader/Loader";
 
 function Expense() {
   useUserAuth();
@@ -18,7 +19,7 @@ function Expense() {
   const [openAddExpenseModal, setOpenAddExpenseModal] = useState(false);
 
   const [expenseData, setExpenseData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [openDeleteAlert, setOpenDeleteAlert] = useState({
     show: false,
     data: null,
@@ -26,8 +27,8 @@ function Expense() {
 
   // get all ExpenseAPI
   const fetchExpenseDetails = async () => {
-    if (loading) return;
-    setLoading(true);
+    // if (loading) return;
+    // setLoading(true);
 
     try {
       const response = await axiosInstance.get(
@@ -86,6 +87,8 @@ function Expense() {
         "Error adding in Expense",
         error.response?.data?.message || error.message
       );
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -103,6 +106,8 @@ function Expense() {
         error.response?.data?.message || error.message
       );
       // setOpenDeleteAlert({ show: false, data: null });
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -138,6 +143,8 @@ function Expense() {
         "Error downloading Expense details : ",
         error.response?.data?.message || error.message
       );
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -148,6 +155,10 @@ function Expense() {
   }, []);
 
   return (
+    <div>
+    {loading ? (
+      <Loader />
+    ) : (
     <DashboardLayout activeMenu="Expense">
       <div className="my-5 mx-auto">
         <div className="grid grid-cols-1 gap-6">
@@ -185,6 +196,8 @@ function Expense() {
         </Modal>
       </div>
     </DashboardLayout>
+    )}
+    </div>
   );
 }
 
