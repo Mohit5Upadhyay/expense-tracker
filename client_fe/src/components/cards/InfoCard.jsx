@@ -7,7 +7,7 @@ function InfoCard( {
     color
 }) {
   return (
-    <div className='flex gap-6 bg-white rounded-2xl shadow-md shadow-gray-100 border border-gray-200/5 p-4 items-center justify-between'>
+    <div className='flex gap-6 bg-white rounded-2xl shadow-md shadow-gray-100 border mb-3 border-gray-200/5 p-4 items-center justify-between'>
         <div className={`w-14 h-14 flex items-center justify-center rounded ${color} text-white text-[26px] drop-shadow-xl`}>
            {icon}
         </div>

@@ -11,7 +11,7 @@ function ExpenseOverview({
     const [chartData, setChartData] = useState([])
 
     useEffect(() =>{
-        const result = prepareExpenseLineChartDataeExpenseLineChartData(transactions);
+        const result = prepareExpenseLineChartData(transactions);
 
         setChartData(result)
 
@@ -23,7 +23,7 @@ function ExpenseOverview({
     <div className='card'>
         <div className="flex items-center justify-between mb-4">
             <div className=''>
-                <h5 className='text-lg'>Expense Overview:--</h5>
+                <h5 className='text-lg font-semibold'>Expense Overview</h5>
 
                 <p className='text-sm text-gray-500 mt-0.5'>Track your spending and analyse your expenditure..</p>
             </div>

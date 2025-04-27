@@ -7,7 +7,7 @@ export const validateEmail = (email) => {
 }
 
 
-export const addThousandsSeparator = (num) => {
+export const addThousandsSeparator = (num = 0) => {
     if(num === null || num === undefined || isNaN(num)) {
         console.log("Number is Either null or undefined or not a number" , num);
         return "";

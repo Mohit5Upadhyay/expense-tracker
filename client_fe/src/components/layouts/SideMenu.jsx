@@ -18,6 +18,10 @@ function SideMenu({ activeMenu }) {
     navigate(route);
   };
 
+
+  console.log("Active Menu : ", activeMenu);
+  console.log("User : ", user);
+
   const handleLogout = () => {
     localStorage.clear();
     clearUser();
@@ -25,7 +29,7 @@ function SideMenu({ activeMenu }) {
   };
 
   return (
-    <div className="w-64 h-[calc(100vh-61px)] bg-white border-r border-gray-200/50 p-5 sticky top-[61px] z-50">
+    <div className="w-64 h-[calc(100vh-61px)]  bg-white border-r border-pink-600 p-5 sticky top-[61px] z-50">
       <div className="flex flex-col items-center mt-3 gap-3 justify-center mb-7">
         {user?.profileImageUrl ? (
           <img
@@ -42,23 +46,24 @@ function SideMenu({ activeMenu }) {
           />
         )}
 
-        <h5 className="text-gray-500 fonct-medium leading-6 text-center ">
-          {user?.fullName || ""}
+        <h5 className="text-gray-800 font-semibold leading-6 text-center ">
+          {(user?.fullName) || ""}  {/* .toUpperCase() used here */}
         </h5>
       </div>
 
-      {SIDE_MENU_DATA.map((item, index) => {
+      {SIDE_MENU_DATA.map((item, index) => (
+        console.log("Side Menu Item : ", item , index , activeMenu),
         <button
           key={`menu_${index}`}
-          className={`w-full flex items-center gap-4 text-[15px] ${
-            activeMenu == item.label ? "text-white bg-primary" : ""
+          className={`w-full flex items-center gap-4 border border-gray-500 text-[15px] ${
+            activeMenu === item.label ? `text-red-700 font-semibold bg-red-100` : ""
           } py-3 px-6 rounded-lg mb-3`}
           onClick={() => handleClick(item.path)}
         >
-          <item.icon className="text-xl" />
+          <item.icon className="text-2xl" />
           {item.label}
-        </button>;
-      })}
+        </button>
+      ))}
     </div>
   );
 }

@@ -19,7 +19,7 @@ function ExpenseList({ transactions, onDelete, onDownload }) {
                 <TransactionInfoCard
                     key={expense._id}
                     icon={expense.icon}
-                    category={expense.category}
+                    title={expense.category}
                     amount={expense.amount}
                     onDelete={() => onDelete(expense._id)}
                     date={moment(expense.date).format("DD MMM YYYY")}

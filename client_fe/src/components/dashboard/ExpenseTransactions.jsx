@@ -10,7 +10,7 @@ function ExpenseTransactions({
   return (
     <div className='card'>
         <div className='flex items-center justify-between'>
-            <h5 className='text-lg'>Expense</h5>
+            <h5 className='text-lg font-semibold'>Expense</h5>
 
             <button className='card-btn' 
             onClick={onSeeMore}

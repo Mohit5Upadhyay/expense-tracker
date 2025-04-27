@@ -11,7 +11,7 @@ function RecentTransactions({
     <div className='card'>
         <div className='flex items-center justify-between'>
 
-            <h5 className='text-lg'>Recent Transactions-</h5>
+            <h5 className='text-lg font-semibold'>Recent Transactions</h5>
 
             <button className='card-btn' onClick={onSeeMore}>
                 See All <LuArrowRight className='text-base' /> 
@@ -31,6 +31,7 @@ function RecentTransactions({
                     type={item.type}
                     icon={item.icon}
                     hideDeleteBtn
+                    
                 />
             ))}
         </div>

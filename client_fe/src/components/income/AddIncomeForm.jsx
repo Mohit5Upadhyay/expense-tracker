@@ -34,15 +34,15 @@ function AddIncomeForm({
 
         <Input 
             value={income.income}
-            onChange={(e) => handleChange("source" , e.target.value)}
+            onChange={(e) => handleChange("amount" , e.target.value)}
             label="Amount"
-            placeholder=""
+            placeholder="Enter amount in  ₹"
             type="number"
         />
 
         <Input 
             value={income.date}
-            onChange={(e) => handleChange("source" , e.target.value)}
+            onChange={(e) => handleChange("date" , e.target.value)}
             label="Date"
             placeholder="Freelance , Salary , etc"
             type="date"
@@ -52,7 +52,7 @@ function AddIncomeForm({
         <div className='flex justify-end mt-4'>
             <button
                 type='button'
-                className='add-btn add-btn-fill cursor-pointer'
+                className='text-white bg-green-600 border px-3 py-2 hover:bg-transparent hover:border-green-600 hover:text-green-600 transition duration-300 ease-in-out rounded-lg cursor-pointer'
                 onClick={() => onAddIncome(income)}    
             >
                 Add Income

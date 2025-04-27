@@ -42,7 +42,7 @@ function Modal({
                             />
                         </svg>
 
-                        // X
+
                     </button>
                 </div>
 

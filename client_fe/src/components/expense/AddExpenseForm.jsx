@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Input from '../Inputs/Input'
-import EmojiPickerPopup from 'emoji-picker-react'
+import EmojiPickerPopup from '../EmojiPickerPopup'
 function AddExpenseForm({
     onAddExpense,
 }) {
@@ -16,6 +16,7 @@ function AddExpenseForm({
 
   return (
     <div>
+        
         <EmojiPickerPopup 
             icon={income.icon}
             onSelect={(selectedIcon) => handleChange("icon" , selectedIcon)}
@@ -31,15 +32,15 @@ function AddExpenseForm({
 
         <Input
             value={income.amount}
-            onChange={(e) => handleChange("category" , e.target.value)} 
-            placeholder=""
+            onChange={(e) => handleChange("amount" , e.target.value)} 
+            placeholder="Enter amount in INR(₹) "
             label="Amount"
             type="number"
         />
 
         <Input
             value={income.date}
-            onChange={(e) => handleChange("category" , e.target.value)} 
+            onChange={(e) => handleChange("date" , e.target.value)} 
             placeholder=""
             label="Date"
             type="date"
@@ -48,7 +49,7 @@ function AddExpenseForm({
         <div className='flex justify-end mt-6'>
             <button
                 type='button'
-                className='add-btn add-btn-fill'
+                className='text-white bg-green-600 border px-3 py-2 hover:bg-transparent hover:border-green-600 hover:text-green-600 transition duration-300 ease-in-out rounded-lg cursor-pointer'
                 onClick={() => onAddExpense(income)}
             >
                 Add Expense
